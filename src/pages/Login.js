@@ -23,7 +23,6 @@ class Login extends Component {
       const validEmail = regexEmail.test(email);
       const validPassword = password.length > five;
       const valid = validEmail && validPassword;
-      console.log(validPassword);
       this.setState({ disabled: !valid });
     });
   };
