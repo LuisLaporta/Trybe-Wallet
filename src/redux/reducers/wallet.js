@@ -1,4 +1,4 @@
-import { WALLET_SUBMIT } from '../actions/actionsTypes';
+import { REQUEST_API, GET_CURRENCE } from '../actions/actionsTypes';
 
 const initialState = {
   currencies: [],
@@ -9,13 +9,14 @@ const initialState = {
 
 const walletReducer = (state = initialState, action) => {
   switch (action.type) {
-  case WALLET_SUBMIT:
+  case REQUEST_API:
     return {
       ...state,
-      currencies: [...action.wallet.currencies],
-      expenses: [...action.wallete.expenses],
-      editor: action.wallete.editor,
-      idToedit: action.wallete.idToedit,
+    };
+  case GET_CURRENCE:
+    return {
+      ...state,
+      currencies: action.data,
     };
   default:
     return state;
