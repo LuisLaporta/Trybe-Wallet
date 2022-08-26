@@ -1,9 +1,89 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { submitUser } from '../redux/actions';
 
-class Login extends React.Component {
+class Login extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      email: '',
+      password: '',
+      disabled: true,
+    };
+  }
+
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value }, () => {
+      const { email, password } = this.state;
+      const five = 5;
+      const regexEmail = /\S+@\S+\.\S+/;
+      const validEmail = regexEmail.test(email);
+      const validPassword = password.length > five;
+      const valid = validEmail && validPassword;
+      console.log(validPassword);
+      this.setState({ disabled: !valid });
+    });
+  };
+
+  handleSubmit = () => {
+    const { submitForm, history } = this.props;
+    const { email } = this.state;
+    submitForm(email);
+    history.push('/carteira');
+  };
+
   render() {
-    return <div>Login</div>;
+    const { disabled } = this.state;
+    return (
+      <fieldset>
+        <form onSubmit={ this.handleSubmit }>
+          <label htmlFor="email">
+            E-mail:
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              onChange={ this.handleChange }
+              data-testid="email-input"
+            />
+          </label>
+
+          <label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+              onChange={ this.handleChange }
+              data-testid="password-input"
+            />
+          </label>
+          <button
+            type="submit"
+            disabled={ disabled }
+          >
+            Entrar
+          </button>
+        </form>
+      </fieldset>
+    );
   }
 }
 
-export default Login;
+Login.propTypes = {
+  submitForm: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  submitForm: (user) => dispatch(submitUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
