@@ -28,9 +28,9 @@ class Login extends Component {
   };
 
   handleSubmit = () => {
-    const { submitForm, history } = this.props;
+    const { dispatch, history } = this.props;
     const { email } = this.state;
-    submitForm(email);
+    dispatch(submitUser(email));
     history.push('/carteira');
   };
 
@@ -75,14 +75,10 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  submitForm: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  submitForm: (user) => dispatch(submitUser(user)),
-});
-
-export default connect(null, mapDispatchToProps)(Login);
+export default connect()(Login);

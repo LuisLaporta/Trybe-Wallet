@@ -1,4 +1,4 @@
-import { USER_SUBMIT, REQUEST_API, GET_CURRENCE } from './actionsTypes';
+import { USER_SUBMIT, REQUEST_API, GET_CURRENCE, WALLET_SUBMIT } from './actionsTypes';
 import getCurrenceApi from '../../services';
 
 export const submitUser = (user) => ({ type: USER_SUBMIT, user });
