@@ -9,7 +9,6 @@ class Header extends Component {
       value * exchangeRates[currency].ask
     ));
     const sum = exchange.reduce((acc, curr) => curr + acc, 0).toFixed(2);
-    console.log(sum);
     return sum;
   };
 

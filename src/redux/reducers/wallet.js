@@ -1,4 +1,4 @@
-import { REQUEST_API, GET_CURRENCE, WALLET_SUBMIT } from '../actions/actionsTypes';
+import { REQUEST_API, GET_CURRENCE, WALLET_SUBMIT, WALLET_DELET } from '../actions/actionsTypes';
 
 const initialState = {
   currencies: [],
@@ -22,6 +22,11 @@ const walletReducer = (state = initialState, action) => {
     return {
       ...state,
       expenses: [...state.expenses, action.wallet],
+    };
+  case WALLET_DELET:
+    return {
+      ...state,
+      expenses: action.wallet,
     };
   default:
     return state;

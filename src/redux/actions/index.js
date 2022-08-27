@@ -1,9 +1,14 @@
-import { USER_SUBMIT, REQUEST_API, GET_CURRENCE, WALLET_SUBMIT } from './actionsTypes';
+import {
+  USER_SUBMIT, REQUEST_API, GET_CURRENCE,
+  WALLET_SUBMIT, WALLET_DELET } from './actionsTypes';
+
 import getCurrenceApi from '../../services';
 
 export const submitUser = (user) => ({ type: USER_SUBMIT, user });
 
 export const submitWallet = (wallet) => ({ type: WALLET_SUBMIT, wallet });
+
+export const deleteWallet = (wallet) => ({ type: WALLET_DELET, wallet });
 
 export const requestAPI = () => ({ type: REQUEST_API });
 
