@@ -1,4 +1,6 @@
-import { REQUEST_API, GET_CURRENCE, WALLET_SUBMIT, WALLET_DELET } from '../actions/actionsTypes';
+import {
+  REQUEST_API, GET_CURRENCE, WALLET_SUBMIT, WALLET_DELET,
+} from '../actions/actionsTypes';
 
 const initialState = {
   currencies: [],
