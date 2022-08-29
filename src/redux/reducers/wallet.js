@@ -1,5 +1,5 @@
 import {
-  REQUEST_API, GET_CURRENCE, WALLET_SUBMIT, WALLET_DELET,
+  REQUEST_API, GET_CURRENCE, WALLET_SUBMIT, WALLET_DELET, WALLET_EDIT, WALLET_EDIT_EXPENSE,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -24,6 +24,21 @@ const walletReducer = (state = initialState, action) => {
     return {
       ...state,
       expenses: [...state.expenses, action.wallet],
+    };
+  case WALLET_EDIT:
+    return {
+      ...state,
+      editor: action.wallet.editor,
+      idToedit: action.wallet.idToedit,
+    };
+  case WALLET_EDIT_EXPENSE:
+    console.log(action.expense);
+    return {
+      ...state,
+      editor: false,
+      expenses: state.expenses
+        .map((exp) => (
+          exp.id === state.idToedit ? ({ ...exp, ...action.expense }) : ({ ...exp }))),
     };
   case WALLET_DELET:
     return {
