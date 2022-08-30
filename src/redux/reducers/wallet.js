@@ -33,7 +33,6 @@ const walletReducer = (state = initialState, action) => {
       idToedit: action.wallet.idToedit,
     };
   case WALLET_EDIT_EXPENSE:
-    console.log(action.expense);
     return {
       ...state,
       editor: false,

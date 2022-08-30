@@ -32,9 +32,10 @@ class WalletForm extends Component {
   handleSubmit = async (event) => {
     const { editor, idToedit, dispatch } = this.props;
     event.preventDefault();
+    const apiReturn = await getCurrenceApi();
+    this.setState({ exchangeRates: apiReturn });
+
     if (!editor) {
-      const apiReturn = await getCurrenceApi();
-      this.setState({ exchangeRates: apiReturn });
       dispatch(submitWallet(this.state));
       this.handleReset();
     }
@@ -62,6 +63,7 @@ class WalletForm extends Component {
   render() {
     const { value, description, currency, method, tag } = this.state;
     const { currencies, editor } = this.props;
+
     return (
       <form>
         <label htmlFor="expense">
