@@ -10,6 +10,7 @@ import Wallet from '../pages/Wallet';
 const initialEntries = ['/carteira'];
 const inputValueId = 'value-input';
 const inputdescripId = 'description-input';
+const alimento = 'Alimentação';
 const initialState = {
   user: {
     email: 'lui.laporta99@gmail.com',
@@ -22,7 +23,7 @@ const initialState = {
       description: 'Bala sete belo',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: 'Alimentação',
+      tag: alimento,
       exchangeRates: mockData,
     }],
     editor: false,
@@ -128,7 +129,7 @@ describe('Carteira do Cliente', () => {
       history,
     });
 
-    const optionsTag = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
+    const optionsTag = [alimento, 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
 
     const tagIput = screen.getByTestId('tag-input');
     expect(tagIput).toHaveValue(optionsTag[0]);
@@ -297,7 +298,7 @@ describe('Carteira do Cliente', () => {
       value: '90',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: 'Alimentação',
+      tag: alimento,
       description: '',
       exchangeRates: mockData,
     }];
