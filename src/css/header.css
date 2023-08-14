@@ -1,0 +1,65 @@
+.form-header {
+  color: #fff;
+  background-image: url('/home/luislaporta/Trybe/sd-023-b-project-trybewallet/imgs/bela-textura-verde-com-pingos-de-chuva_24972-155.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3%;
+}
+
+.form-title h1 {
+  margin: auto;
+  font-size: 42px;
+  position: relative;
+}
+
+.form-title svg {
+  margin-left: 1%;
+  position: relative;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  font-weight: 18px;
+  margin-right: 1%;
+}
+
+.user h4 {
+  width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+
+.bi {
+  margin-right: 5px;
+}
+
+.form-descris {
+  display: flex;
+  padding-bottom: 1%;
+}
+
+.cambio {
+  margin-left: 33%;
+}
+
+.despesas {
+  margin-left: 9%;
+}
+
+.border {
+  border: 2px solid #fff;
+  border-radius: 25px;
+  padding: 7px
+}
