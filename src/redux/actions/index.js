@@ -2,7 +2,7 @@ import {
   USER_SUBMIT, REQUEST_API, GET_CURRENCE,
   WALLET_SUBMIT, WALLET_DELET, WALLET_EDIT, WALLET_EDIT_EXPENSE } from './actionsTypes';
 
-import getCurrenceApi from '../../services';
+import { getCurrenceApi } from '../../services';
 
 export const submitUser = (user) => ({ type: USER_SUBMIT, user });
 
