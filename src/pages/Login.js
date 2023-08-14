@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { submitUser } from '../redux/actions';
+import '../css/login.css';
 
 class Login extends Component {
   constructor() {
@@ -37,39 +38,47 @@ class Login extends Component {
   render() {
     const { disabled } = this.state;
     return (
-      <fieldset>
-        <form onSubmit={ this.handleSubmit }>
-          <label htmlFor="email">
-            E-mail:
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Digite seu e-mail"
-              onChange={ this.handleChange }
-              data-testid="email-input"
-            />
-          </label>
-
-          <label htmlFor="password">
-            Password:
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Digite sua senha"
-              onChange={ this.handleChange }
-              data-testid="password-input"
-            />
-          </label>
-          <button
-            type="submit"
-            disabled={ disabled }
+      <div className="container">
+        <div className="form-container">
+          <form
+            className="login-form"
+            onSubmit={ this.handleSubmit }
           >
-            Entrar
-          </button>
-        </form>
-      </fieldset>
+            <label htmlFor="email" className="login-form__label">
+              e-mail:
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="login-form__input"
+                placeholder="Digite seu e-mail"
+                onChange={ this.handleChange }
+                data-testid="email-input"
+              />
+            </label>
+
+            <label htmlFor="password" className="login-form__label">
+              password:
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="login-form__input"
+                placeholder="Digite sua senha"
+                onChange={ this.handleChange }
+                data-testid="password-input"
+              />
+            </label>
+            <button
+              type="submit"
+              disabled={ disabled }
+              className="login-form__button"
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }

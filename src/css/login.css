@@ -1,0 +1,63 @@
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('/home/luislaporta/Trybe/sd-023-b-project-trybewallet/imgs/CHELSEA-best-minimalist-purse-Black-Vaultskin_1920x.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+}
+
+.form-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 90%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  width: 100%;
+  padding: 10% 20%;
+}
+
+.login-form__input {
+  font: inherit;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid #fff;
+  outline-color: #fff;
+  background-color: transparent;
+  margin-bottom: 12px;
+  margin-top: 3px;
+}
+
+.login-form__input:hover {
+  outline-color: #7EED00;
+}
+
+.login-form__label {
+  color: #fff;
+}
+
+.login-form__button {
+  border-radius: 4px;
+  height: 30px;
+}
+
+.login-form__button:hover {
+  background-color: #7EED00;
+  color: #fff;
+}
