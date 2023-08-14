@@ -1,0 +1,27 @@
+.form-wallet {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #333333;
+  padding: 1% 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.border-wallet {
+  color: black;
+  border: 1px solid #fff; 
+  border-radius: 25px;
+  padding: 3px;
+  padding-left: 10px;
+  margin-left: 5px;
+}
+
+.form-wallet button {
+  border: 1px solid #fff; 
+  border-radius: 25px;
+}
+
+.form-wallet button:hover {
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+}

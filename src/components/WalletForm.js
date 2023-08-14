@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { editExpenseWallet, fetchAPI, submitWallet } from '../redux/actions';
-import getCurrenceApi from '../services';
+import { getCurrenceApi } from '../services';
+import '../css/wallet.css';
 
 class WalletForm extends Component {
   constructor() {
@@ -65,18 +66,18 @@ class WalletForm extends Component {
     const { currencies, editor } = this.props;
 
     return (
-      <form>
-        <label htmlFor="expense">
+      <form className="form-wallet">
+        <label htmlFor="expense" className="expense">
           Despesa:
           <input
             type="number"
             name="value"
             value={ value }
             data-testid="value-input"
+            className="border-wallet"
             onChange={ this.handleChange }
           />
         </label>
-
         <label htmlFor="description">
           Descrição:
           <input
@@ -84,52 +85,62 @@ class WalletForm extends Component {
             name="description"
             value={ description }
             data-testid="description-input"
+            className="border-wallet"
             onChange={ this.handleChange }
           />
         </label>
-        Moeda:
-        <select
-          id="currency-select"
-          name="currency"
-          value={ currency }
-          data-testid="currency-input"
-          onChange={ this.handleChange }
-        >
-          {currencies.map((op) => (
-            <option
-              value={ op }
-              key={ op }
-            >
-              {op}
-            </option>
-          ))}
-        </select>
-        Método de pagamento:
-        <select
-          id="pagamento-select"
-          name="method"
-          value={ method }
-          data-testid="method-input"
-          onChange={ this.handleChange }
-        >
-          <option value="Dinheiro">Dinheiro</option>
-          <option value="Cartão de crédito">Cartão de crédito</option>
-          <option value="Cartão de débito">Cartão de débito</option>
-        </select>
-        Categoria da Despesa:
-        <select
-          id="pagamento-select"
-          name="tag"
-          value={ tag }
-          data-testid="tag-input"
-          onChange={ this.handleChange }
-        >
-          <option value="Alimentação">Alimentação</option>
-          <option value="Lazer">Lazer</option>
-          <option value="Trabalho">Trabalho</option>
-          <option value="Transporte">Transporte</option>
-          <option value="Saúde">Saúde</option>
-        </select>
+        <div>
+          Moeda:
+          <select
+            id="currency-select"
+            name="currency"
+            value={ currency }
+            data-testid="currency-input"
+            className="border-wallet"
+            onChange={ this.handleChange }
+          >
+            {currencies.map((op) => (
+              <option
+                value={ op }
+                key={ op }
+              >
+                {op}
+              </option>
+            ))}
+          </select>
+        </div>
+        <dib>
+          Método de pagamento:
+          <select
+            id="pagamento-select"
+            name="method"
+            value={ method }
+            data-testid="method-input"
+            className="border-wallet"
+            onChange={ this.handleChange }
+          >
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+            <option value="Cartão de débito">Cartão de débito</option>
+          </select>
+        </dib>
+        <div>
+          Categoria da Despesa:
+          <select
+            id="pagamento-select"
+            name="tag"
+            value={ tag }
+            data-testid="tag-input"
+            className="border-wallet"
+            onChange={ this.handleChange }
+          >
+            <option value="Alimentação">Alimentação</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Saúde">Saúde</option>
+          </select>
+        </div>
 
         <button
           type="submit"
